@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo11B2023.Views.Operaciones">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryColor">#FF4081</Color>
+            <Style TargetType="Button" x:Key="CalcButtonStyle">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Margin" Value="0,10,0,0" />
+            </Style>
+            <Style TargetType="Label" x:Key="ResultLabelStyle">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="Margin" Value="0,10,0,0" />
+            </Style>
+            <Style TargetType="Image" x:Key="BoxImageStyle">
+                <Setter Property="Aspect" Value="AspectFit" />
+                <Setter Property="Margin" Value="0,30,0,0" />
+                <Setter Property="Source" Value="box_image.png" />
+                <!-- Reemplaza 'box_image.png' con la ruta de tu imagen -->
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="10">
+            <Label Text="Cálculo de área y perímetro" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" 
+                   Margin="0,0,0,20"/>
+
+            <Label Text="Base:" FontSize="16" />
+            <Entry Placeholder="Ingrese la base"
+                   Text="{Binding Base}" />
+
+            <Label Text="Altura:" FontSize="16" />
+            <Entry Placeholder="Ingrese la altura"
+                   Text="{Binding Altura}" />
+
+            <Button Text="Calcular área"
+                    Command="{Binding CalcularArea}"
+                    Style="{StaticResource CalcButtonStyle}"/>
+
+            <Button Text="Calcular perímetro"
+                    Command="{Binding CalcularPerimetro}"
+                    Style="{StaticResource CalcButtonStyle}"/>
+
+            <Image Style="{StaticResource BoxImageStyle}" />
+
+            <Label Text="Área:" FontSize="18" Style="{StaticResource ResultLabelStyle}" />
+            <Label Text="{Binding Area}" FontSize="24" Style="{StaticResource ResultLabelStyle}" />
+
+            <Label Text="Perímetro:" FontSize="18" Style="{StaticResource ResultLabelStyle}" />
+            <Label Text="{Binding Perimetro}" FontSize="24" Style="{StaticResource ResultLabelStyle}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
